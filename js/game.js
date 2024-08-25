@@ -1,3 +1,4 @@
+import BallPair from "./ballPair.js";
 import Obstacle from "./obstacle.js";
 
 export default class Game {
@@ -12,6 +13,8 @@ export default class Game {
         }
 
         this.start()
+        
+        this.ballPair = new BallPair(this);
 
         this.obstaclePool = [];
         this.numberOfObstacles = 20;
@@ -62,5 +65,6 @@ export default class Game {
             obstacle.update();
             obstacle.draw();
         })
+        this.ballPair.draw();
     }
 }
