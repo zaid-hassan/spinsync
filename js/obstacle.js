@@ -1,27 +1,40 @@
 export default class Obstacle {
-    constructor(game) {
+    constructor(game, ballPair) {
         this.game = game;
-        this.width = Math.floor(Math.random() * this.game.width / 3) + this.game.width / 10;
-        this.height = Math.floor(Math.random() * this.game.height / 10) + this.game.height / 50;
-        this.x = Math.floor(Math.random() * this.game.width);
+        this.ballPair = ballPair;
+
+        this.radius = this.ballPair.radius;
+
+        this.width = Math.floor(Math.random() * (3 * this.radius - 1.5 * this.radius) + 1.5 * this.radius);
+        this.height = Math.floor(Math.random() * (6 * this.radius - 4 * this.radius) + 4 * this.radius);
+
+        this.x = Math.floor(Math.random() * (this.game.width - this.width));
+
         this.y = -this.height;
+
         this.speedY = 5;
         this.available = true;
     }
+
     start() {
         this.available = false;
-        this.x = Math.floor(Math.random() * this.game.width);
+        this.x = Math.floor(Math.random() * (this.game.width - this.width));
         this.y = -this.height;
     }
+
     reset() {
         this.available = true;
     }
+
     update() {
         if (!this.available) {
             this.y += this.speedY;
-            if (this.y > this.game.height) this.reset()
+            if (this.y > this.game.height) {
+                this.reset();
+            }
         }
     }
+
     draw() {
         if (!this.available) {
             this.game.ctx.beginPath();

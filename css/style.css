@@ -1,8 +1,18 @@
+/* // <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 900 */
+
+.orbitron-game-over {
+  font-family: "Orbitron", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 
 #canvas {
     position: absolute;
@@ -11,4 +21,12 @@
     translate: -50% -50%;
     border: 2px solid black;
     background-color: #1e1e1e;
+}
+
+.game-over {
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ;
 }

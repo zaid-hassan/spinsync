@@ -13,9 +13,11 @@ window.addEventListener('load', () => {
     function animation (timeStamp) {
         const deltatime = timeStamp - lastTimeStamp;
         lastTimeStamp = timeStamp;
-        console.log(deltatime)
         ctx.clearRect(0,0, canvas.width, canvas.height);
         game.render(deltatime)
+        if (game.ballPair.available) {
+            canvas.style.display = "none";
+        }
         requestAnimationFrame(animation)
     }
 
