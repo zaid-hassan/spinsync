@@ -9,7 +9,7 @@ export default class BallPair {
         this.distance = this.radius * 7;
 
         this.originX = this.game.width * .5 - this.distance * .5 + this.distance * .5; // 50% of game width minus 50% of distance aligns the origin to center of screen
-        this.originY = this.game.height - this.distance * .55;
+        this.originY = this.game.height - this.distance * .9;
 
         this.redBallX = this.originX - this.distance * .5;
         this.redBallY = this.originY;
@@ -49,12 +49,12 @@ export default class BallPair {
     draw() {
         if (!this.available) {
             this.game.ctx.beginPath();
-            this.game.ctx.fillStyle = 'red';
+            this.game.ctx.fillStyle = '#FF0000';
             this.game.ctx.arc(this.redBallX, this.redBallY, this.radius, 0, Math.PI * 2, true);
             this.game.ctx.fill()
 
             this.game.ctx.beginPath();
-            this.game.ctx.fillStyle = 'blue';
+            this.game.ctx.fillStyle = '#00FFFF';
             this.game.ctx.arc(this.blueBallX, this.blueBallY, this.radius, 0, Math.PI * 2, true);
             this.game.ctx.fill()
 
