@@ -17,6 +17,7 @@ window.addEventListener('load', () => {
         game.render(deltatime)
         if (game.ballPair.available) {
             canvas.style.display = "none";
+            document.querySelector('.game-over').classList.toggle('none');
         }
         requestAnimationFrame(animation)
     }

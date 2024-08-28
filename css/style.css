@@ -23,6 +23,9 @@
     --accent-2: #FFB6C1; */
 
 }
+.none {
+    display: none;
+}
 * {
     box-sizing: border-box;
     margin: 0;

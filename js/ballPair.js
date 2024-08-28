@@ -17,6 +17,8 @@ export default class BallPair {
         this.blueBallY = this.originY;
 
         this.aim;
+        this.angle = 0;
+        this.rotationalSpeed = 0.05;
 
         this.available = false;
     }
@@ -28,11 +30,24 @@ export default class BallPair {
     }
     update() {
         if (!this.available) {
-            this.aim = this.game.calcAim(this.game.mouse.x, this.game.mouse.y, this.originX, this.originY);
-            this.redBallX = this.originX + this.distance * .5 * this.aim[0];
-            this.redBallY = this.originY + this.distance * .5 * this.aim[1];
-            this.blueBallX = this.originX + this.distance * .5 * this.aim[0] * -1;
-            this.blueBallY = this.originY + this.distance * .5 * this.aim[1] * -1;
+            if (this.game.keys.includes('ArrowLeft')) this.angle -= this.rotationalSpeed;
+            if (this.game.keys.includes('ArrowRight')) this.angle += this.rotationalSpeed;
+
+            const cosAngle = Math.cos(this.angle);
+            const sinAngle = Math.sin(this.angle);
+            console.log(cosAngle, sinAngle)
+
+            this.redBallX = this.originX + this.distance * 0.5 * cosAngle;
+            this.redBallY = this.originY + this.distance * 0.5 * sinAngle;
+            this.blueBallX = this.originX - this.distance * 0.5 * cosAngle;
+            this.blueBallY = this.originY - this.distance * 0.5 * sinAngle;
+
+
+            // this.aim = this.game.calcAim(this.game.mouse.x, this.game.mouse.y, this.originX, this.originY);
+            // this.redBallX = this.originX + this.distance * .5 * this.aim[0];
+            // this.redBallY = this.originY + this.distance * .5 * this.aim[1];
+            // this.blueBallX = this.originX + this.distance * .5 * this.aim[0] * -1;
+            // this.blueBallY = this.originY + this.distance * .5 * this.aim[1] * -1;
             this.obstaclePool.forEach(obstacle => {
                 if (!obstacle.available) {
                     const collisionRed = this.game.checkCollision(this.redBallX, this.redBallY, this.radius, obstacle.x, obstacle.y, obstacle.width, obstacle.height);
