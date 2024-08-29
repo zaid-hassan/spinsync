@@ -7,7 +7,7 @@ export default class Game {
         this.ctx = ctx;
         this.width = canvas.width;
         this.height = canvas.height;
-        this.mouse = {
+        this.touch = {
             x: undefined,
             y: undefined,
         }
@@ -27,9 +27,10 @@ export default class Game {
         window.addEventListener('resize', (e) => {
             this.resize(e.target.innerWidth, e.target.innerHeight)
         })
-        window.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
+        window.addEventListener('touchstart', e => {
+            console.log(e.touches[0].pageX)
+            this.touch.x = e.touches[0].pageX;
+            this.touch.y = e.touches[0].pageY;
         })
         window.addEventListener('keydown', (e) => {
             if (this.keys.indexOf(e.key) === -1) {
@@ -66,14 +67,6 @@ export default class Game {
         }
     }
 
-    calcAim(ax, ay, bx, by) {
-        const dx = ax - bx;
-        const dy = ay - by;
-        const distance = Math.hypot(dx, dy);
-        const aimX = dx / distance;
-        const aimY = dy / distance;
-        return [aimX, aimY, dx, dy];
-    }
     checkCollision(circleX, circleY, circleR, rectX, rectY, rectWidth, rectHeight) {
         let testX = circleX;
         let testY = circleY;

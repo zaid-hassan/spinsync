@@ -5,8 +5,10 @@ export default class Obstacle {
 
         this.radius = this.ballPair.radius;
 
-        this.width = Math.floor(Math.random() * (3 * this.radius - 1.5 * this.radius) + 1.5 * this.radius);
-        this.height = Math.floor(Math.random() * (6 * this.radius - 4 * this.radius) + 4 * this.radius);
+        // this.width = Math.floor(Math.random() * (3 * this.radius - 1.5 * this.radius) + 1.5 * this.radius);
+        // this.height = Math.floor(Math.random() * (6 * this.radius - 4 * this.radius) + 4 * this.radius);
+        this.width = Math.floor(Math.random() * (2 * this.radius - 1 * this.radius) + 1 * this.radius);
+        this.height = Math.floor(Math.random() * (3 * this.radius - 2 * this.radius) + 2 * this.radius);
 
         this.x = Math.floor(Math.random() * (this.game.width - this.width));
 
@@ -38,7 +40,7 @@ export default class Obstacle {
     draw() {
         if (!this.available) {
             this.game.ctx.beginPath();
-            this.game.ctx.fillStyle = '#FFFF00';
+            this.game.ctx.fillStyle = '#FFEB3B';
             this.game.ctx.rect(this.x, this.y, this.width, this.height);
             this.game.ctx.fill();
         }

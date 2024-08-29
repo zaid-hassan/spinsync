@@ -7,35 +7,47 @@
     --obstacles: #E0E0E0;
     --accent-1: #39FF14;
     --accent-2: #9F00FF; */
-    
-    --background-color: #121212;
+
+    /* --background-color: #121212;
     --primary-ball: #FF0000;
     --secondary-ball: #00FFFF;
     --obstacles: #FFFF00;
     --accent-1: #FF00FF;
-    --accent-2: #00FF00;
-    
+    --accent-2: #00FF00; */
+
     /* --background-color: #E6E6FA;
     --primary-ball: #FF6F61;
     --secondary-ball: #B0E0E6;
     --obstacles: #FFDAB9;
     --accent-1: #FFFFE0;
     --accent-2: #FFB6C1; */
+/* 
+    --green: #39FF14;
+    --purple: #FF00FF;
+    --orange: #FF6F00;
+    --yellow: #FFEB3B; */
+    --dark-gray: #1C1C1C;
+    /* --cyan: #00FFFF;
+    --pink: #FF69B4; */
 
 }
+
 .none {
     display: none;
 }
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    user-select: none;
 }
+
 .orbitron-game-over {
-  font-family: "Orbitron", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 900;
-  font-style: normal;
+    font-family: "Orbitron", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
 }
 
 
@@ -44,7 +56,7 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background-color: var(--background-color);
+    background-color: var(--dark-gray);
 }
 
 .game-over {
