@@ -34,7 +34,7 @@ export default class BallPair {
             if (this.game.keys.includes('ArrowRight')) this.angle += this.rotationalSpeed; // Rotate to right
 
             // Handle touch input
-            if (this.game.touch) {
+            if (this.game.touch.x !== undefined) {
                 if (this.game.touch.x > this.game.width / 2) {
                     this.angle += this.rotationalSpeed; // Rotate to the right
                 } else if (this.game.touch.x < this.game.width / 2) {
@@ -58,7 +58,6 @@ export default class BallPair {
                     const collisionBlue = this.game.checkCollision(this.blueBallX, this.blueBallY, this.radius, obstacle.x, obstacle.y, obstacle.width, obstacle.height);
 
                     if (collisionRed || collisionBlue) {
-                        console.log('collision')
                         this.reset()
                     }
                 }
@@ -68,12 +67,12 @@ export default class BallPair {
     draw() {
         if (!this.available) {
             this.game.ctx.beginPath();
-            this.game.ctx.fillStyle = '#39FF14';
+            this.game.ctx.fillStyle = '#00FFFF';
             this.game.ctx.arc(this.redBallX, this.redBallY, this.radius, 0, Math.PI * 2, true);
             this.game.ctx.fill()
 
             this.game.ctx.beginPath();
-            this.game.ctx.fillStyle = '#FF00FF';
+            this.game.ctx.fillStyle = '#BFFF00';
             this.game.ctx.arc(this.blueBallX, this.blueBallY, this.radius, 0, Math.PI * 2, true);
             this.game.ctx.fill()
 

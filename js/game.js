@@ -19,23 +19,25 @@ export default class Game {
         this.numberOfObstacles = 20;
         this.obstacleTimer = 0;
         this.obstacleInterval = 500;
-        
+
         this.ballPair = new BallPair(this, this.obstaclePool);
-        
+
         this.createObstacles();
 
         window.addEventListener('resize', (e) => {
             this.resize(e.target.innerWidth, e.target.innerHeight)
         })
         window.addEventListener('touchstart', e => {
-            console.log(e.touches[0].pageX)
             this.touch.x = e.touches[0].pageX;
             this.touch.y = e.touches[0].pageY;
         })
+        window.addEventListener('touchend', () => {
+            this.touch.x = undefined;
+            this.touch.y = undefined;
+        });
         window.addEventListener('keydown', (e) => {
             if (this.keys.indexOf(e.key) === -1) {
                 this.keys.push(e.key);
-                console.log(this.keys)
             }
         })
         window.addEventListener('keyup', (e) => {
@@ -43,7 +45,6 @@ export default class Game {
             if (index > -1) {
                 this.keys.splice(index, 1);
             }
-            console.log(this.keys)
         })
     }
 

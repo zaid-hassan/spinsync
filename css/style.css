@@ -21,14 +21,34 @@
     --obstacles: #FFDAB9;
     --accent-1: #FFFFE0;
     --accent-2: #FFB6C1; */
-/* 
+    /* 
     --green: #39FF14;
     --purple: #FF00FF;
     --orange: #FF6F00;
     --yellow: #FFEB3B; */
-    --dark-gray: #1C1C1C;
+    /* --dark-gray: #1C1C1C; */
     /* --cyan: #00FFFF;
     --pink: #FF69B4; */
+
+    --aqua: #00FFFF;
+    /* Aqua for one player ball */
+    --lime: #BFFF00;
+    /* Lime for the other player ball */
+    --bright-orange: #FF5722;
+    /* Bright orange for obstacles */
+    --violet: #8A2BE2;
+    /* Violet for secondary obstacles or highlights */
+    --deep-space: #0A0A0A;
+    /* Deep space black for the background */
+    --bright-yellow: #FFEA00;
+    /* Bright yellow for UI elements or trajectory lines */
+    --turquoise: #40E0D0;
+    /* Turquoise for additional effects or accents */
+    --light-gray: #D3D3D3;
+    /* Light gray for softer UI elements */
+
+
+
 
 }
 
@@ -56,7 +76,7 @@
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    background-color: var(--dark-gray);
+    background-color: var(--deep-space);
 }
 
 .game-over {

@@ -40,7 +40,7 @@ export default class Obstacle {
     draw() {
         if (!this.available) {
             this.game.ctx.beginPath();
-            this.game.ctx.fillStyle = '#FFEB3B';
+            this.game.ctx.fillStyle = '#FF5722';
             this.game.ctx.rect(this.x, this.y, this.width, this.height);
             this.game.ctx.fill();
         }
